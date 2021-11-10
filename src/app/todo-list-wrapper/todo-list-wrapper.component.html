@@ -1,0 +1,11 @@
+<div>
+    <input type="text" #todoListInput />
+    <button type="button" (click)="add(todoListInput)">Adicionar</button>
+    <!-- esse ngFor é um for (laço de repetição) -->
+    <li *ngFor="let task of tasks">
+        <!-- o valor é impresso utilizando a famosa: INTERPOLAÇÃO -->
+        <!-- $event é o valor emitido no filho  -->
+        <app-todo-list-line [task]="task" (taskRemoved)="treatRemoval($event)"></app-todo-list-line>
+        
+    </li>
+</div>
