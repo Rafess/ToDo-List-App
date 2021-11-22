@@ -1,3 +1,4 @@
+import { Task } from './../task';
 import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 
 
@@ -7,14 +8,19 @@ import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
   styleUrls: ['./todo-list-line.component.css']
 })
 export class TodoListLineComponent implements OnInit {
-  @Input() task: string = "";
+  @Input() task: Task = new Task("","","");
   @Output() taskRemoved= new EventEmitter();
+
+  words : string[] = ["gambiarrento", "boçal", "Armless John", "puta", "caralho"];
   constructor() {}
 
   ngOnInit(): void {
   }
 
   remove(): void {
-    this.taskRemoved.emit(this.task);
+    this.taskRemoved.emit(this.task.name);
+  }
+  verifyDurtyWords() {
+    return (this.words.some(word => this.task.name.includes(word)));
   }
 }

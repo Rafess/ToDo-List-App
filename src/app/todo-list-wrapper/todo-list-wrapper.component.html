@@ -1,11 +1,29 @@
 <div>
+    <span>Nova Tarefa</span>
     <input type="text" #todoListInput />
     <button type="button" (click)="add(todoListInput)">Adicionar</button>
+    <br>
+    <br>
+    <span>Pesquisar Tarefa</span>
+    <input type="text" [ngModel]="filter" (ngModelChange)="onFilterChange($event)"/>
+    
+    
+    
+    
+    
     <!-- esse ngFor é um for (laço de repetição) -->
     <li *ngFor="let task of tasks">
+        <!-- o *ngFor é uma diretiva, ele altera a DOM, 
+            conseguindo fazer com que a renderização de algo no template ocorra com condição (*ngIf) ou em loop (*ngFor) etc -->
         <!-- o valor é impresso utilizando a famosa: INTERPOLAÇÃO -->
         <!-- $event é o valor emitido no filho  -->
         <app-todo-list-line [task]="task" (taskRemoved)="treatRemoval($event)"></app-todo-list-line>
         
     </li>
+
+    <!-- <br/> -->
+    <!-- Um exemplo de two-way binding:  -->
+    <!-- <input [(ngModel)]="taskValue" type="text" name="" id=""/> 
+    {{ taskValue }} 
+        O problema disso é que acaba atualizando tudo, deixando o codigo lento, nao é muito usada-->
 </div>

@@ -1,4 +1,4 @@
 <div>
-    <span>{{ task }}</span>
+    <a [routerLink]="['tasks', task.id]" durtywords [durty]="verifyDurtyWords()"> {{ task.name }}</a>
     <button (click)="remove()" >Remover</button>
 </div>
