@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { DurtyWordsDirective } from './durty-words.directive';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoDetailComponent } from './todo-list-wrapper/todo-detail/todo-detail.component';
-
+import {HttpClientModule} from '@angular/common/http'
 const appRoutes: Routes = [
 //  para cada rota, especificamos um componente aqui:
   { path: 'home', component: TodoListWrapperComponent },
@@ -23,12 +23,13 @@ const appRoutes: Routes = [
     TodoListWrapperComponent,
     TodoListLineComponent,
     DurtyWordsDirective,
-    TodoDetailComponent
+    TodoDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
